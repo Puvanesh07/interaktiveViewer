@@ -2,13 +2,14 @@
   "name": "interaktiveapiexpress",
   "version": "1.0.0",
   "description": "Kick off",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Farhath Naseem",
   "license": "ISC",
-   "engine": {
+  "engine": {
     "node": "v14.17.1",
   "npm": "6.14.13"},
   "dependencies": {
