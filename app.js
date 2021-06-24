@@ -53,7 +53,12 @@ const user1 = new USER({
  })
  
  //user1.save();
-
+ app.get("/test", function(req,res){
+   res.send("Test");
+ })
+ app.get("/view", function(req,res){
+  res.render("createCanvas.ejs",{gltfsrc : "https://testfuturecargltf.s3.ap-south-1.amazonaws.com/Future+Car.gltf"});
+})
    app.get('/viewer', function (req, res) {
 
    USER.find({api_key: req.query.ApiKey},{_id:1}, function(err, users){
