@@ -1,4 +1,5 @@
 var gltfsrcValue;
+var viewerLinkValue;
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -9,7 +10,7 @@ app.set('view engine', 'ejs');
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
@@ -52,12 +53,27 @@ const user1 = new USER({
   gltf_models: url2
  })
  
- //user1.save();
- app.get("/test", function(req,res){
-   res.send("Test");
- })
  app.get("/view", function(req,res){
-  res.render("createCanvas.ejs",{gltfsrc : "https://testfuturecargltf.s3.ap-south-1.amazonaws.com/Future+Car.gltf"});
+  //res.render("createCanvas.ejs",{gltfsrc : "https://testfuturecargltf.s3.ap-south-1.amazonaws.com/Future+Car.gltf", viewerLink: "https://interaktive-viewer.herokuapp.com/view?ApiKey=test3&UrlKey=url1"});
+  USER.find({api_key: req.query.ApiKey},{_id:1}, function(err, users){
+    if (err)
+    console.log(err);
+    else{
+      URL.find({_id: users},{urls:1, _id:0} ,function(err2, urlLinks){
+        if(err2)
+          console.log(err2);
+          else{          
+          urlLinks.forEach(function(urlLink){              
+             gltfsrcValue = urlLink.urls.get(req.query.UrlKey);       
+           
+           })
+           res.render("createUserCanvas.ejs",{gltfsrc : gltfsrcValue});
+            }
+           
+          })
+    }
+      
+})
 })
    app.get('/viewer', function (req, res) {
 
@@ -68,20 +84,18 @@ const user1 = new USER({
           URL.find({_id: users},{urls:1, _id:0} ,function(err2, urlLinks){
             if(err2)
               console.log(err2);
-              else{  
-                console.log(urlLinks)          
+              else{         
               urlLinks.forEach(function(urlLink){              
                  gltfsrcValue = urlLink.urls.get(req.query.UrlKey);       
-                console.log(gltfsrcValue)
+                 viewerLinkValue = "https://interaktive-viewer.herokuapp.com/view?ApiKey="+req.query.ApiKey+"&UrlKey="+req.query.UrlKey;
                })
-               res.render("createCanvas.ejs",{gltfsrc : gltfsrcValue});
+               res.render("createCanvas.ejs",{gltfsrc : gltfsrcValue, viewerLink: viewerLinkValue});
                 }
                
               })
         }
           
     })
-    console.log(gltfsrcValue);
   })
 
   let port = process.env.PORT;
