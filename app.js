@@ -30,31 +30,16 @@ const usersSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   api_key: String,
-  gltf_models: urlSchema
 })
 
 const URL = mongoose.model("Url",urlSchema);
 const USER = mongoose.model("User", usersSchema);
 
-const url2 = new URL({  
- _id: 2,
-  urls:{
-    url1: "This is the URL of user2"
-    }
+app.get("/", function(req,res){
+  res.send("Interaktive Viewer is up and running");
 })
 
-//url2.save();
-
-const user1 = new USER({
-  _id: 2,
-  first_name: "Max",
-  last_name : "Vestappan",
-  api_key : "test5",
-  gltf_models: url2
- })
- 
- app.get("/view", function(req,res){
-  //res.render("createCanvas.ejs",{gltfsrc : "https://testfuturecargltf.s3.ap-south-1.amazonaws.com/Future+Car.gltf", viewerLink: "https://interaktive-viewer.herokuapp.com/view?ApiKey=test3&UrlKey=url1"});
+app.get("/view", function(req,res){
   USER.find({api_key: req.query.ApiKey},{_id:1}, function(err, users){
     if (err)
     console.log(err);
@@ -62,7 +47,7 @@ const user1 = new USER({
       URL.find({_id: users},{urls:1, _id:0} ,function(err2, urlLinks){
         if(err2)
           console.log(err2);
-          else{          
+          else{         
           urlLinks.forEach(function(urlLink){              
              gltfsrcValue = urlLink.urls.get(req.query.UrlKey);       
            
@@ -75,7 +60,8 @@ const user1 = new USER({
       
 })
 })
-   app.get('/viewer', function (req, res) {
+
+app.get('/viewer', function (req, res) {
 
    USER.find({api_key: req.query.ApiKey},{_id:1}, function(err, users){
         if (err)
@@ -98,7 +84,7 @@ const user1 = new USER({
     })
   })
 
-  let port = process.env.PORT;
+let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5001;
 }
