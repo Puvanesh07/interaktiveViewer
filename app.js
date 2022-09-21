@@ -1,4 +1,4 @@
-var gltfsrcValue = "https://puvanesh07.github.io/Interaktive_Files/shoeInteraktiveDraco.glb";
+var gltfsrcValue = "https://interaktive10.github.io/hosted-assets/Collar_Animation.glb";
 var viewerLinkValue;
 const express = require('express');
 const mongoose = require('mongoose');
