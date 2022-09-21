@@ -1,10 +1,34 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<model-viewer id="viewer" auto-rotate src=<%= gltfsrc%> autoplay animation-name="Action_01" style="width: 100%; top: 0px" alt="A 3D model" 
-preload ar ar-modes="quick-look scene-viewer webxr" shadow-intensity="0.97" exposure="2" 
-interaction-prompt="auto" camera-controls autoplay="true" quick-look-browsers="safari chrome" 
-camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%">
+
+<!-- <model-viewer id="viewer" auto-rotate src=<%= gltfsrc%> style="width: 100%; top: 0px" alt="A 3D model" preload ar ar-modes="quick-look scene-viewer webxr" shadow-intensity="0.97" exposure="2" interaction-prompt="auto" camera-controls autoplay="true" quick-look-browsers="safari chrome" camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%"> -->
+<!-- </model-viewer> -->
+<model-viewer  id ="viewer" src=<%= gltfsrc%> style="width: 100%; top: 0px"
+     alt="A 3D model" preload ar ar-modes="quick-look scene-viewer webxr" 
+     shadow-intensity="0.97" exposure="2" interaction-prompt="auto" 
+     camera-controls autoplay="true" quick-look-browsers="safari chrome" 
+     camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" 
+     min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%"> 
+    
+    <button class="Hotspot" slot="hotspot-1" data-position="-0.10712152820868158m 0.044776229865746725m 0.03809999775611865m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Action_01
+        </div>
+    </button>
+    
+    <button class="Hotspot" slot="hotspot-2" data-position="0.08099547407256072m 0.010579363500041933m 0.03809999775611864m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Action_02</div>
+    </button>
+    
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
 </model-viewer>
- 
+
 
 <style>
     model-viewer {
