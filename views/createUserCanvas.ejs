@@ -4,19 +4,19 @@
 
 function buttonClicked1(){
   const modelViewer = document.querySelector('#viewer');
-  modelViewer.animationName='Action_01';
+  modelViewer.animationName='DA_01';
 }
 function buttonClicked2(){
   const modelViewer = document.querySelector('#viewer');
-  modelViewer.animationName='Action_02';
+  modelViewer.animationName='DA_02';
 }
 function buttonClicked3(){
-  console.log('test1');
-   document.getElementById("viewer").animationName='Action_03'
+  const modelViewer = document.querySelector('#viewer');
+  modelViewer.animationName='DA_03';
 }
 function buttonClicked4(){
   const modelViewer = document.querySelector('#viewer');
-  modelViewer.animationName='Action_04';
+  modelViewer.animationName='DA_04';
 }
 
 window.onload=function(){
@@ -29,34 +29,27 @@ window.onload=function(){
    var btn4 = document.getElementById("Hotspot4");
   btn4.addEventListener("click", buttonClicked4, true);
 }
+
+
 </script>
 
-<model-viewer  id ="viewer" src="https://interaktive10.github.io/hosted-assets/Collar_Animation.glb" 
-ios-src="https://puvanesh07.github.io/Interaktive_Files/Collar_Animation.usdz" style="width: 100%; top: 0px" animation-name="Action_01"
-     alt="A 3D model" preload  autoplay ar ar-modes=" webxr quick-look scene-viewer" 
-     shadow-intensity="5" exposure="2" interaction-prompt="auto" 
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<model-viewer  id ="viewer" src="https://puvanesh07.github.io/Interaktive_Files/Dog_AppScreen_Animation.glb" ios-src="https://puvanesh07.github.io/Interaktive_Files/Collar_Animation.usdz" style="width: 100%; top: 0px"
+     alt="A 3D model" preload ar ar-modes="quick-look scene-viewer webxr" 
+     shadow-intensity="0.97" exposure="2" interaction-prompt="auto" 
      camera-controls autoplay="true" quick-look-browsers="safari chrome" 
      camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" 
-     min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%"> 
-    
-   <button id="Hotspot1"  slot="hotspot-2" data-position="-0.13883578039164687m 0.046501643280209705m 0.03809999775611855m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation" >Action_1</div>
-    </button>
-  
-  <button id="Hotspot2" slot="hotspot-3" data-position="-0.13952048603659767m 0.009489359526727068m 0.038099997756118734m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Action_2</div>
-    </button>
-  
-  <button id="Hotspot3" slot="hotspot-4" data-position="0.05895943842745072m 0.04563908365935706m 0.03809999775611864m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Action_3</div>
-    </button>
-                                      <button id="Hotspot4" slot="hotspot-5" data-position="0.06082295419385537m 0.009614951138308419m 0.038099997756118734m" data-normal="0m -1.654361375336658e-23m 1m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Action_4</div>
-    </button>
-    
-    
-    
-  
+     min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%" > 
+      <button id="Hotspot1" slot="hotspot-5" data-position="-0.06569547194109601m 0.1366291980301921m -0.07298040672014625m" data-normal="-0.496306763126551m 0.16140171408789833m 0.8530117722308022m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">1</div>
+      </button><button id="Hotspot2" slot="hotspot-6" data-position="0.060633392103998984m 0.1283007392382205m -0.06873046274220551m" data-normal="-0.4192929576732304m -0.014416933803687457m 0.9077365078398768m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">2</div>
+      </button><button id="Hotspot3" slot="hotspot-7" data-position="-0.06327502570333074m 0.04481356326720956m -0.06038595382815935m" data-normal="-0.27707944419158187m 0.3234353896136425m 0.9047742980168897m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">3</div>
+      </button><button id="Hotspot4" slot="hotspot-8" data-position="0.0656790557858612m 0.04522690495186309m -0.05884978219397126m" data-normal="-0.22723624628570224m 0.3681254851761879m 0.9015804542789181m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">4</div>
+      </button>  
 </model-viewer>
 
 
