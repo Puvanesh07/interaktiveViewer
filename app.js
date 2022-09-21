@@ -47,7 +47,7 @@ app.get("/view", function(req,res){
 //     }
 // })
 // }
-    console.log(gltfsrcValue);
+    console.log("test");
 res.render("createUserCanvas.ejs",{gltfsrc : gltfsrcValue});
 })
 // app.get('/viewer', function (req, res) {
