@@ -68,7 +68,7 @@ res.render("createUserCanvas.ejs",{gltfsrc : gltfsrcValue});
 //               })
 //         }
 //     })
-//   })
+//   }) 
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5001;
