@@ -35,22 +35,42 @@ window.onload=function(){
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-<model-viewer  id ="viewer" src="https://puvanesh07.github.io/Interaktive_Files/Dog_AppScreen_Animation.glb" ios-src="https://puvanesh07.github.io/Interaktive_Files/Collar_Animation.usdz" style="width: 100%; top: 0px"
-     alt="A 3D model" preload ar ar-modes="webxr quick-look scene-viewer " 
-     shadow-intensity="0.97" exposure="2" interaction-prompt="auto" 
-     camera-controls autoplay="true" quick-look-browsers="safari chrome" 
-     camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" 
-     min-camera-orbit="auto 0deg 80%" max-camera-orbit="auto 180deg 100%" > 
-      <button id="Hotspot1" slot="hotspot-5" data-position="-0.06569547194109601m 0.1366291980301921m -0.07298040672014625m" data-normal="-0.496306763126551m 0.16140171408789833m 0.8530117722308022m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">1</div>
-      </button><button id="Hotspot2" slot="hotspot-6" data-position="0.060633392103998984m 0.1283007392382205m -0.06873046274220551m" data-normal="-0.4192929576732304m -0.014416933803687457m 0.9077365078398768m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">2</div>
-      </button><button id="Hotspot3" slot="hotspot-7" data-position="-0.06327502570333074m 0.04481356326720956m -0.06038595382815935m" data-normal="-0.27707944419158187m 0.3234353896136425m 0.9047742980168897m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">3</div>
-      </button><button id="Hotspot4" slot="hotspot-8" data-position="0.0656790557858612m 0.04522690495186309m -0.05884978219397126m" data-normal="-0.22723624628570224m 0.3681254851761879m 0.9015804542789181m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">4</div>
-      </button>  
-</model-viewer>
+<model-viewer id="viewer" src="https://puvanesh07.github.io/Interaktive_Files/Dog_scaled.glb"
+    ios-src="https://puvanesh07.github.io/Interaktive_Files/Dog_scaled_up.usdz" style="width: 100%;top: 0px;height: 50%;"
+    alt="A 3D model" preload ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="0.97" exposure="2"
+    interaction-prompt="auto" camera-controls autoplay="true" quick-look-browsers="safari chrome"
+    camera-orbit="0deg 75deg auto" min-field-of-view="10deg" max-field-of-view="100deg" min-camera-orbit="auto 0deg 80%"
+    max-camera-orbit="auto 180deg 100%">
+    <button id="Hotspot1" slot="hotspot-5"
+      data-position="-0.06569547194109601m 0.1366291980301921m -0.07298040672014625m"
+      data-normal="-0.496306763126551m 0.16140171408789833m 0.8530117722308022m" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">1</div>
+    </button><button id="Hotspot2" slot="hotspot-6"
+      data-position="0.060633392103998984m 0.1283007392382205m -0.06873046274220551m"
+      data-normal="-0.4192929576732304m -0.014416933803687457m 0.9077365078398768m" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">2</div>
+    </button><button id="Hotspot3" slot="hotspot-7"
+      data-position="-0.06327502570333074m 0.04481356326720956m -0.06038595382815935m"
+      data-normal="-0.27707944419158187m 0.3234353896136425m 0.9047742980168897m" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">3</div>
+    </button><button id="Hotspot4" slot="hotspot-8"
+      data-position="0.0656790557858612m 0.04522690495186309m -0.05884978219397126m"
+      data-normal="-0.22723624628570224m 0.3681254851761879m 0.9015804542789181m" data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">4</div>
+    </button>
+    <button slot="ar-button" id="ar-button"> Activate AR</button>
+  </model-viewer>
+
+  <script>
+    var isMobile = /iPhone|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      document.getElementById("viewer").style.height = "500px";
+    }
+    else {
+      document.getElementById("viewer").style.height = "440px";
+
+    }
+  </script>
 
 
 
@@ -61,5 +81,19 @@ window.onload=function(){
         width: 100%;
         margin: 0 auto;
 
+    }
+    #ar-button {
+      position: absolute;
+      left: 50%;
+      bottom: 40px;
+      transform: translate(-50%,-50%);
+      margin:0 auto;
+      background-color: #0a0a23;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      min-height: 20px;
+      min-width: 120px;
     }
 </style>
